@@ -10,7 +10,8 @@ class Product:
 
 
 class Shop:
-    __file_name = 'products.txt'
+    def __init__(self):
+        self.__file_name = 'products.txt'
 
     def get_products(self):
         file = open(self.__file_name, 'r')
@@ -21,12 +22,12 @@ class Shop:
     def add(self, *products):
         _products = self.get_products()
         for product in products:
+            _file = open(self.__file_name, 'a')
             if str(product) in _products:
                 print(f'Продукт {str(product)} уже есть в магазине')
             else:
-                _file = open(self.__file_name, 'a')
                 _file.write(f'{str(product)}\n')
-                _file.close()
+            _file.close()
 
 s1 = Shop()
 p1 = Product('Potato', 50.5, 'Vegetables')
