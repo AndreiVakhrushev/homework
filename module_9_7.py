@@ -3,7 +3,7 @@ def is_prime(func):
     def wrapper(*args, **kwargs):
         sum_ = func(*args, **kwargs)
         is_prime = True
-        for i in range(2, sum_):
+        for i in range(2, int(sum_**0.5) + 1):
             if sum_ % i == 0:
                 is_prime = False
         if is_prime == True:
